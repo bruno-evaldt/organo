@@ -2,9 +2,9 @@ import './Footer.css'
 
 const Footer = () => {
     return(
-        <footer className='footer'>
+        <footer>
 
-            <img src='/imagens/fundo.png'/>
+            <img src='/imagens/fundo.png' className='back-image'/>
             <div className='icon'>
                 <img src='/imagens/fb.png' alt='logo do facebook'/>
                 <img src='/imagens/tw.png' alt='logo do twitter'/>
@@ -12,9 +12,7 @@ const Footer = () => {
             </div>
           
             <img src='/imagens/logo.png' alt='logo da organo'/>
-
             <p>Desenvolvido por Bruno</p>
-
 
         </footer>
 
