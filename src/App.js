@@ -52,16 +52,21 @@ function App() {
       setCollaborators([...collaborators,collaborator])         
   }
 
+
+  function deleteCollaborator () {
+    console.log('Deletado')
+  }
+
   return (
     <div className="App">
       <Banner/>
       <Form times={times.map(time => time.name)} registeredCollaborator={collaborator => newCollaborator(collaborator)}/>
-
       {times.map(time => <Time key={time.name} 
         name={time.name} 
         pColor={time.primaryColor} 
         sColor={time.secondaryColor}
         collaborators={collaborators.filter(collaborator => collaborator.time === time.name)}
+        deleteCollaborator={deleteCollaborator}
       />)}
       <Footer/>
     </div>
