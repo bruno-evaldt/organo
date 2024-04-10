@@ -1,13 +1,15 @@
 import { useState } from 'react'
 import Button from '../Button'
 import DropDownList from '../DropDownList'
-import TextField from '../TextField'
+import Field from '../Field'
 import './Form.css'
 const Form  = (props) => {
         const [name, setName] = useState('')
         const [employment, setEmployment] = useState('')
         const [image, setImage] = useState('')
         const [time, setTime] = useState('')
+        const [nameTime, setNameTime] = useState('')
+        const [colorTime, setColorTime] = useState('')
 
         const saving = (evento) => {
                 evento.preventDefault()
@@ -24,24 +26,34 @@ const Form  = (props) => {
                 setTime('')
                 
             }
+
+        const savingTime = (evento) => {
+            evento.preventDefault()
+            props.registeredTime({
+                name: nameTime,
+                Color: colorTime
+            })
+            setNameTime('')
+            setColorTime('')
+        }
     return(
         
         <section className='back-form'>
             <form onSubmit={saving}>
                 <h2>Preencha os dados para criar o card do colaborador</h2>
-                <TextField mandatory ={true} 
+                <Field mandatory ={true} 
                 label="Nome" 
                 placeholder="Digite seu nome"
                 fieldtype={name}
                 theChanged={fieldtype => setName(fieldtype)}/>
 
-                <TextField mandatory ={true} 
+                <Field mandatory ={true} 
                 label="Cargo" 
                 placeholder="Digite seu cargo"
                 fieldtype={employment}
                 theChanged={fieldtype => setEmployment(fieldtype)}/>
 
-                <TextField label="Imagem" 
+                <Field label="Imagem" 
                 placeholder="Digite o endereço da imagem" 
                 fieldtype={image}
                 theChanged={fieldtype => setImage(fieldtype)}/>
@@ -53,6 +65,26 @@ const Form  = (props) => {
                 theChanged={fieldtype => setTime(fieldtype)}/>
 
                 <Button>Criar card</Button>
+            </form>
+            <form onSubmit={savingTime}>
+                <h2>Preencha os dados para criar um novo time</h2>
+                <Field 
+                mandatory 
+                label="Nome" 
+                placeholder="Digite nome do time"
+                fieldtype={nameTime}
+                theChanged={fieldtype => setNameTime(fieldtype)}/>
+
+                <Field 
+                mandatory  
+                type='color'
+                label="Cor" 
+                placeholder="Digite a cor do time"
+                fieldtype={colorTime}
+                theChanged={fieldtype => setColorTime(fieldtype)}/>
+
+           
+                <Button>Criar time</Button>
             </form>
         </section>
         
