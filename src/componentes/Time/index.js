@@ -15,12 +15,14 @@ const Time = (props) => {
             <div className='collaborators'>
                 {props.collaborators.map( collaborator => <Collaborator 
                     colorBack={props.Color} 
+                    id={collaborator.id}
                     key={collaborator.name} 
                     name={collaborator.name} 
                     employment={collaborator.employment} 
                     image={collaborator.image} 
                     deleteCollaborator={() => props.deleteCollaborator(collaborator.id)}
-                    togglefavorite={() => props.togglefavorite(collaborator.id)}/>
+                    favorite={collaborator.favorite}
+                    togglefavorite={props.togglefavorite}/>
                 )}
             </div>
         </section>

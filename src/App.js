@@ -10,43 +10,36 @@ function App() {
   const [times, setTimes] = useState( [
   {
     id: uuidv4(),
-    favorite : false,
     name: 'Programção',
     Color: '#57C278',
   },
   {
     id: uuidv4(),
-    favorite : false,
     name: 'Frontend',
     Color: '#82CFFA',
   },
   {
     id: uuidv4(),
-    favorite : false,
     name: 'Data Science',
     Color: '#A6D157',
   },
   {
     id: uuidv4(),
-    favorite : false,
     name: 'Devops',
     Color: '#E06B69',
   },
   {
     id: uuidv4(),
-    favorite : false,
     name: 'UX e Design',
     Color: '#DB6EBF',
   },
   {
     id: uuidv4(),
-    favorite : false,
     name: 'Mobile',
     Color: '#FFBA05',
   },
   {
     id: uuidv4(),
-    favorite : false,
     name: 'Inovação e Gestão',
     Color: '#FF8A29',
   }
@@ -63,7 +56,6 @@ function App() {
     setCollaborators(collaborators.filter(collaborator => collaborator.id !== id))
   }
 
-  console.log(times)
 
   function alterColorTime (id, Color) {
     console.log("ID:", id);
@@ -82,18 +74,14 @@ function App() {
       console.log(registeredTime)
   }
   
+  console.log(likeFavorite)
   function likeFavorite (id) {
     setCollaborators(collaborators.map(collaborator =>{
-      if(collaborator.id == id){
-        collaborator.favorite = !collaborator.favorite
-      }
+      if(collaborator.id === id)collaborator.favorite =!collaborator.favorite
       return collaborator;
     }))} 
    
     
-
-  
-
 
   return (
     <div className="App">

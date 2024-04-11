@@ -3,9 +3,16 @@ import { AiFillCloseCircle, AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 
 
 const Collaborator = (props) => {
+
     function togglefavorite ()  {
         props.togglefavorite(props.id);
+        console.log(props.id)
     }
+    const propfavorite = {
+        size: 25,
+        onClick: togglefavorite
+    }
+
     return(
         <div className='collaborator'>
               <AiFillCloseCircle 
@@ -21,10 +28,12 @@ const Collaborator = (props) => {
             <div className='footer'>
                 <h4>{props.name}</h4>
                 <h5>{props.employment}</h5>
+
+                <div className='favoriteHeart'>
+                    {props.favorite ? <AiFillHeart {...propfavorite} color='#ff0000'/> : <AiOutlineHeart {...propfavorite} color='#ff0000'/>}
             </div>
-            <div className='favoriteHeart'>
-                    {collaborator.favorite ? <AiFillHeart size={25} onClick={togglefavorite}/> : <AiOutlineHeart size={25} onClick={togglefavorite}/>}
             </div>
+            
 
         </div>
     )

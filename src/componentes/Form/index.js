@@ -3,6 +3,7 @@ import Button from '../Button'
 import DropDownList from '../DropDownList'
 import Field from '../Field'
 import './Form.css'
+import { v4 as uuidv4 } from 'uuid';
 const Form  = (props) => {
         const [name, setName] = useState('')
         const [employment, setEmployment] = useState('')
@@ -14,12 +15,14 @@ const Form  = (props) => {
         const saving = (evento) => {
                 evento.preventDefault()
                 props.registeredCollaborator({
+                    id: uuidv4(),
+                    favorite:false,
                     name,
                     employment,
                     image,
                     time
                 }) 
-
+                
                 setName('')
                 setEmployment('')
                 setImage('')
