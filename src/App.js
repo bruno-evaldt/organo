@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import Banner from './componentes/Banner';
 import Form from './componentes/Form';
 import Time from './componentes/Time';
 import Footer from './componentes/Footer';
+import Banner from './componentes/Banner'
 import { v4 as uuidv4 } from 'uuid';
 
 function App() {
@@ -85,7 +85,7 @@ function App() {
 
   return (
     <div className="App">
-      <Banner/>
+      <Banner adressImage='/imagens/banner.png'/>
       <Form
         registeredTime={newTime => registeredTime(newTime)} 
         times={times.map(time => time.name)}
